@@ -24,7 +24,7 @@ main {
 .fill img {
     flex-shrink: 0;
     min-width: 100%;
-    min-height: 100vh; /* Ensures image covers full viewport */
+    min-height: 100%; /* Ensures image covers full viewport */
     object-fit: cover; /* This ensures the image scales to cover without stretching */
 }
 
