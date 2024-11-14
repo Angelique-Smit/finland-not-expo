@@ -23,6 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
       slides[slideIndex - 1].style.display = "block";
 
       // Set a timer to move to the next slide
-      setTimeout(showSlides, 2000);
+      setTimeout(showSlides, 5000);
   }
 });

@@ -4,36 +4,24 @@ body {
     overflow: hidden;
 }
 
-main {
+main, .slideshow-container, .fill {
     height: 100vh;
     width: 100vw;
-}
-
-.slideshow-container {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Prevents any overflow from showing */
 }
 
-.fill {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100vw; /* Ensures the div takes full width of the viewport */
-    height: 100vh; /* Ensures the div takes full height of the viewport */
+.slideshow-container {
+    position: relative;
 }
 
+/* Default for larger screens - fill screen with minimal cropping */
 .fill img {
-    max-width: 100vw; /* Shrinks the image to fit the container's width if it's too large */
-    max-height: 100vh; /* Shrinks the image to fit the container's height if it's too large */
-    width: auto; /* Allows width to adjust naturally */
-    height: auto; /* Allows height to adjust naturally */
-    object-fit: contain; /* Ensures the image is fully visible within the container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fills the container on larger screens */
     object-position: center; /* Centers the image within the container */
 }
 
@@ -48,12 +36,12 @@ main {
     to { opacity: 1 }
 }
 
-/* Additional Media Query for Mobile Devices */
+/* Media Query for Smaller Screens - Stretch image to fit screen */
 @media (max-width: 768px) {
     .fill img {
-        max-width: 100vw; /* Prevents image from exceeding viewport width on mobile */
-        max-height: 100vh; /* Prevents image from exceeding viewport height on mobile */
-        object-fit: contain; /* Keeps entire image visible within the viewport */
+        width: 100vw; /* Force the image to fill the width */
+        height: 100vh; /* Force the image to fill the height */
+        object-fit: fill; /* Warps the image slightly to prevent whitespace */
         object-position: center;
     }
 }
