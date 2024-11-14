@@ -8,14 +8,33 @@ main {
     width: 100vw;
 }
 
+.slideshow-container {
+    height: 100vh;  /* Fullscreen height */
+    width: 100vw;
+    position: relative;
+}
+
 .fill {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden
+    overflow: hidden;
 }
+
 .fill img {
     flex-shrink: 0;
     min-width: 100%;
-    min-height: 100vh
+    min-height: 100vh; /* Ensures image covers full viewport */
+    object-fit: cover; /* This ensures the image scales to cover without stretching */
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4 }
+    to { opacity: 1 }
 }
