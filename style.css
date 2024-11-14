@@ -18,14 +18,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden
 }
-
 .fill img {
     flex-shrink: 0;
     min-width: 100%;
-    min-height: 100%; /* Ensures image covers full viewport */
-    object-fit: cover; /* This ensures the image scales to cover without stretching */
+    min-height: 100%
 }
 
 /* Fading animation */
