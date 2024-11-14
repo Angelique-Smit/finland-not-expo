@@ -16,26 +16,28 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Prevents any overflow from showing */
 }
 
 .fill {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    width: 100vw; /* Ensures the div takes full width of the viewport */
+    height: 100vh; /* Ensures the div takes full height of the viewport */
 }
 
 .fill img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Ensures image fills container */
+    max-width: 100vw; /* Shrinks the image to fit the container's width if it's too large */
+    max-height: 100vh; /* Shrinks the image to fit the container's height if it's too large */
+    width: auto; /* Allows width to adjust naturally */
+    height: auto; /* Allows height to adjust naturally */
+    object-fit: contain; /* Ensures the image is fully visible within the container */
+    object-position: center; /* Centers the image within the container */
 }
 
-
-/* Fading animation */
+/* Fading animation for slideshow */
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
@@ -46,11 +48,12 @@ main {
     to { opacity: 1 }
 }
 
-/* Media query for mobile screens */
+/* Additional Media Query for Mobile Devices */
 @media (max-width: 768px) {
     .fill img {
-        width: 100vw; /* Full width of viewport */
-        height: 100vh; /* Full height of viewport */
-        object-fit: cover; /* Ensures full coverage without distortion */
+        max-width: 100vw; /* Prevents image from exceeding viewport width on mobile */
+        max-height: 100vh; /* Prevents image from exceeding viewport height on mobile */
+        object-fit: contain; /* Keeps entire image visible within the viewport */
+        object-position: center;
     }
 }
